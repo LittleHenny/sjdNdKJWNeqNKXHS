@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Kamelia</title>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="header_logo title">Kamelia</h1>
+      <ul class="header_nav">
+        <li class="header_nav_element header_nav_element--active">
+          <button class="text header_nav_buttons">Не сделанные заказы</button>
+        </li>
+        <li class="header_nav_element">
+          <button class="text header_nav_buttons">Добавить заказ</button>
+        </li>
+        <li class="header_nav_element">
+          <button class="text header_nav_buttons">В процессе</button>
+        </li>
+        <li class="header_nav_element">
+          <button class="text header_nav_buttons">Готовые заказы</button>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <section class="not_ready">
+      <div class="container">
+        <button class="sort_btn button text">Сортировать</button>
+        <ul class="not_ready_orders">
+        </ul>
+      </div>
+    </section>
+    <section class="add_order window--close">
+      <div class="container">
+        <h2 class="add_order_title title">Добавление заказа</h2>
+        <form class="add_order_form">
+          <input type="text" placeholder="Клиент" class="text add_order_form_client" name="client">
+          <input type="number" placeholder="Номер заказа" class="text add_order_form_number" name="number">
+          <input type="number" placeholder="Сумма заказа" class="text add_order_form_price" name="price">
+          <input type="datetime-local" class="text add_order_form_time" name="time">
+          <div class="add_order_form_checkbox_wrapper">
+            <input type="checkbox" id="add_order_form_delivery" class="add_order_form_checkbox" name="delivery"> 
+            <label for="add_order_form_delivery" class="text add_order_form_delivery_label">Доставка</label>
+          </div>
+          <input type="text" placeholder="Адрес" class="text add_order_form_adress window--close" name="adress">
+          <textarea placeholder='Заказ' class="text add_order_form_order" name="order"></textarea>
+          <textarea placeholder="Связь с клиентом" class="text add_order_form_connection" name="connection"></textarea>
+          <button type="reset" class="add_order_form_button text button">Добавить</button>
+        </form>
+      </div>
+    </section>
+    <section class="orders_in_progress">
+      <div class="container">
+        <ul class="progress_orders">
+        </ul>
+      </div>
+    </section>
+    <section class="ready window--close">
+      <div class="container">
+        <button class="sort_btn button text">Сортировать</button>
+        <ul class="ready_orders">
+          <li class="ready_order">
+            <div class="ready_order_wrapper">
+              <p class="ready_order_time text">Время: 11.00</p>
+              <p class="ready_order_price text">Сумма заказа: 3000 руб</p>
+            </div>
+            <div class="ready_order_wrapper">
+              <p class="ready_order_client text">Клиент: Иван Иванович Иванов</p>
+              <p class="ready_order_delivery text">Доставка: Сергиевск</p>
+            </div>
+            <button class="ready_order_button button text">Отдать</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="order window--close">
+      <div class="container">
+        <h2 class="order_title title">Заказ</h2>
+        <div class="order_wrapper text">
+        </div>
+        <div class="order_buttons">
+          <button class="order_back button text">Назад</button>
+          <button class="order_delete button text">Удалить</button>
+          <button class="order_ready_button button text">Делать</button>
+        </div>
+      </div>
+    </section>
+    <section class="order_ready window--close">
+      <div class="container">
+        <h2 class="order_ready_title title">Заказ</h2>
+        <div class="order_ready_wrapper text">
+        </div>
+        <div class="order_ready_buttons">
+          <button class="order_ready_back button text">Назад</button>
+          <button class="order_ready_delete button text">Удалить</button>
+          <button class="order_ready_give button text">Отдать</button>
+        </div>
+      </div>
+    </section>
+    <section class="order_progress window--close">
+      <div class="container">
+        <h2 class="order_progress_title title">Заказ</h2>
+        <div class="order_progress_wrapper text">
+        </div>
+        <div class="order_progress_buttons">
+          <button class="order_progress_back button text">Назад</button>
+          <button class="order_progress_delete button text">Удалить</button>
+          <button class="order_progress_ready button text">Сделан</button>
+        </div>
+      </div>
+    </section>
+    <section class="modal_order_delete modal window--close">
+      <h2 class="modal_order_delete_text title">Удалить заказ?</h2>
+      <div class="modal_order_delete_buttons">
+        <button class="modal_order_delete_accept text button">Удалить</button>
+        <button class="modal_order_delete_cancel text button">Отмена</button>
+      </div>
+    </section>
+    <section class="modal_sort modal window--close">
+      <ul class="modal_sort_elements">
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">Сумма заказа(возр.)</button>
+        </li>
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">Сумма заказа(убыв.)</button>
+        </li>
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">Дата(возр.)</button>
+        </li>
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">Дата(убыв.)</button>
+        </li>
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">ФИО(возр.)</button>
+        </li>
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">ФИО(убыв.)</button>
+        </li>
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">Доставка: Нет</button>
+        </li>
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">Доставка: Суходол</button>
+        </li>
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">Доставка: Сергиевск</button>
+        </li>
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">Доставка: Калиновка</button>
+        </li>
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">Доставка: Сургут</button>
+        </li>
+        <li class="modal_sort_element">
+          <button class="modal_sort_element_btn text button">Доставка: Серноводск</button>
+        </li>
+      </ul>
+    </section>
+    <div class="modal_protection window--close"></div>
+  </main>
+</body>
+<script src="js/main.js"></script>
+</html>
